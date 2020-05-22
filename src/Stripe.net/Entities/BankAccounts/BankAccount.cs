@@ -72,7 +72,7 @@ namespace Stripe
         [JsonProperty("default_for_currency")]
         public bool? DefaultForCurrency { get; set; }
 
-        [JsonProperty("deleted", NullValueHandling=NullValueHandling.Ignore)]
+        [JsonProperty("deleted", NullValueHandling = NullValueHandling.Ignore)]
         public bool? Deleted { get; set; }
 
         [JsonProperty("fingerprint")]

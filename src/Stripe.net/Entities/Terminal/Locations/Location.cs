@@ -14,7 +14,7 @@ namespace Stripe.Terminal
         [JsonProperty("address")]
         public Address Address { get; set; }
 
-        [JsonProperty("deleted", NullValueHandling=NullValueHandling.Ignore)]
+        [JsonProperty("deleted", NullValueHandling = NullValueHandling.Ignore)]
         public bool? Deleted { get; set; }
 
         [JsonProperty("display_name")]

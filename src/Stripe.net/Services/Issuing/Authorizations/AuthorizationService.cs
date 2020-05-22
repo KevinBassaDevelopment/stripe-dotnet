@@ -42,14 +42,14 @@ namespace Stripe.Issuing
             return this.RequestAsync(HttpMethod.Post, $"{this.InstanceUrl(id)}/decline", options, requestOptions, cancellationToken);
         }
 
-        public virtual Authorization Get(string authorizationId, AuthorizationGetOptions options = null, RequestOptions requestOptions = null)
+        public virtual Authorization Get(string id, AuthorizationGetOptions options = null, RequestOptions requestOptions = null)
         {
-            return this.GetEntity(authorizationId, options, requestOptions);
+            return this.GetEntity(id, options, requestOptions);
         }
 
-        public virtual Task<Authorization> GetAsync(string authorizationId, AuthorizationGetOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
+        public virtual Task<Authorization> GetAsync(string id, AuthorizationGetOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
         {
-            return this.GetEntityAsync(authorizationId, options, requestOptions, cancellationToken);
+            return this.GetEntityAsync(id, options, requestOptions, cancellationToken);
         }
 
         public virtual StripeList<Authorization> List(AuthorizationListOptions options = null, RequestOptions requestOptions = null)
@@ -66,6 +66,7 @@ namespace Stripe.Issuing
         {
             return this.ListEntitiesAutoPaging(options, requestOptions);
         }
+
         #if !NET45
         public virtual IAsyncEnumerable<Authorization> ListAutoPagingAsync(AuthorizationListOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
         {
@@ -73,14 +74,14 @@ namespace Stripe.Issuing
         }
         #endif
 
-        public virtual Authorization Update(string authorizationId, AuthorizationUpdateOptions options, RequestOptions requestOptions = null)
+        public virtual Authorization Update(string id, AuthorizationUpdateOptions options, RequestOptions requestOptions = null)
         {
-            return this.UpdateEntity(authorizationId, options, requestOptions);
+            return this.UpdateEntity(id, options, requestOptions);
         }
 
-        public virtual Task<Authorization> UpdateAsync(string authorizationId, AuthorizationUpdateOptions options, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
+        public virtual Task<Authorization> UpdateAsync(string id, AuthorizationUpdateOptions options, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
         {
-            return this.UpdateEntityAsync(authorizationId, options, requestOptions, cancellationToken);
+            return this.UpdateEntityAsync(id, options, requestOptions, cancellationToken);
         }
     }
 }

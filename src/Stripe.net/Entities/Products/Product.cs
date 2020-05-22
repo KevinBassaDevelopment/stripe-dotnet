@@ -29,7 +29,7 @@ namespace Stripe
         [JsonProperty("deactivate_on")]
         public List<string> DeactivateOn { get; set; }
 
-        [JsonProperty("deleted", NullValueHandling=NullValueHandling.Ignore)]
+        [JsonProperty("deleted", NullValueHandling = NullValueHandling.Ignore)]
         public bool? Deleted { get; set; }
 
         [JsonProperty("description")]

@@ -31,14 +31,14 @@ namespace Stripe
             return this.RequestAsync(HttpMethod.Post, $"{this.InstanceUrl(id)}/approve", options, requestOptions, cancellationToken);
         }
 
-        public virtual Review Get(string reviewId, ReviewGetOptions options = null, RequestOptions requestOptions = null)
+        public virtual Review Get(string id, ReviewGetOptions options = null, RequestOptions requestOptions = null)
         {
-            return this.GetEntity(reviewId, options, requestOptions);
+            return this.GetEntity(id, options, requestOptions);
         }
 
-        public virtual Task<Review> GetAsync(string reviewId, ReviewGetOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
+        public virtual Task<Review> GetAsync(string id, ReviewGetOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
         {
-            return this.GetEntityAsync(reviewId, options, requestOptions, cancellationToken);
+            return this.GetEntityAsync(id, options, requestOptions, cancellationToken);
         }
 
         public virtual StripeList<Review> List(ReviewListOptions options = null, RequestOptions requestOptions = null)
@@ -55,6 +55,7 @@ namespace Stripe
         {
             return this.ListEntitiesAutoPaging(options, requestOptions);
         }
+
         #if !NET45
         public virtual IAsyncEnumerable<Review> ListAutoPagingAsync(ReviewListOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
         {

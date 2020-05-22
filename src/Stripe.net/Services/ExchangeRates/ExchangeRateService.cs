@@ -20,14 +20,14 @@ namespace Stripe
 
         public override string BasePath => "/v1/exchange_rates";
 
-        public virtual ExchangeRate Get(string exchangeRateId, ExchangeRateGetOptions options = null, RequestOptions requestOptions = null)
+        public virtual ExchangeRate Get(string id, ExchangeRateGetOptions options = null, RequestOptions requestOptions = null)
         {
-            return this.GetEntity(exchangeRateId, options, requestOptions);
+            return this.GetEntity(id, options, requestOptions);
         }
 
-        public virtual Task<ExchangeRate> GetAsync(string exchangeRateId, ExchangeRateGetOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
+        public virtual Task<ExchangeRate> GetAsync(string id, ExchangeRateGetOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
         {
-            return this.GetEntityAsync(exchangeRateId, options, requestOptions, cancellationToken);
+            return this.GetEntityAsync(id, options, requestOptions, cancellationToken);
         }
 
         public virtual StripeList<ExchangeRate> List(ExchangeRateListOptions options = null, RequestOptions requestOptions = null)
@@ -44,6 +44,7 @@ namespace Stripe
         {
             return this.ListEntitiesAutoPaging(options, requestOptions);
         }
+
         #if !NET45
         public virtual IAsyncEnumerable<ExchangeRate> ListAutoPagingAsync(ExchangeRateListOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
         {

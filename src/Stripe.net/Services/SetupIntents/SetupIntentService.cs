@@ -53,14 +53,14 @@ namespace Stripe
             return this.CreateEntityAsync(options, requestOptions, cancellationToken);
         }
 
-        public virtual SetupIntent Get(string setupIntentId, SetupIntentGetOptions options = null, RequestOptions requestOptions = null)
+        public virtual SetupIntent Get(string id, SetupIntentGetOptions options = null, RequestOptions requestOptions = null)
         {
-            return this.GetEntity(setupIntentId, options, requestOptions);
+            return this.GetEntity(id, options, requestOptions);
         }
 
-        public virtual Task<SetupIntent> GetAsync(string setupIntentId, SetupIntentGetOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
+        public virtual Task<SetupIntent> GetAsync(string id, SetupIntentGetOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
         {
-            return this.GetEntityAsync(setupIntentId, options, requestOptions, cancellationToken);
+            return this.GetEntityAsync(id, options, requestOptions, cancellationToken);
         }
 
         public virtual StripeList<SetupIntent> List(SetupIntentListOptions options = null, RequestOptions requestOptions = null)
@@ -77,6 +77,7 @@ namespace Stripe
         {
             return this.ListEntitiesAutoPaging(options, requestOptions);
         }
+
         #if !NET45
         public virtual IAsyncEnumerable<SetupIntent> ListAutoPagingAsync(SetupIntentListOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
         {
@@ -84,14 +85,14 @@ namespace Stripe
         }
         #endif
 
-        public virtual SetupIntent Update(string setupIntentId, SetupIntentUpdateOptions options, RequestOptions requestOptions = null)
+        public virtual SetupIntent Update(string id, SetupIntentUpdateOptions options, RequestOptions requestOptions = null)
         {
-            return this.UpdateEntity(setupIntentId, options, requestOptions);
+            return this.UpdateEntity(id, options, requestOptions);
         }
 
-        public virtual Task<SetupIntent> UpdateAsync(string setupIntentId, SetupIntentUpdateOptions options, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
+        public virtual Task<SetupIntent> UpdateAsync(string id, SetupIntentUpdateOptions options, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
         {
-            return this.UpdateEntityAsync(setupIntentId, options, requestOptions, cancellationToken);
+            return this.UpdateEntityAsync(id, options, requestOptions, cancellationToken);
         }
     }
 }

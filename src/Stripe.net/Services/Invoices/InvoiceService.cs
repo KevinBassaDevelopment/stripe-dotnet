@@ -34,14 +34,14 @@ namespace Stripe
             return this.CreateEntityAsync(options, requestOptions, cancellationToken);
         }
 
-        public virtual Invoice Delete(string invoiceId, InvoiceDeleteOptions options = null, RequestOptions requestOptions = null)
+        public virtual Invoice Delete(string id, InvoiceDeleteOptions options = null, RequestOptions requestOptions = null)
         {
-            return this.DeleteEntity(invoiceId, options, requestOptions);
+            return this.DeleteEntity(id, options, requestOptions);
         }
 
-        public virtual Task<Invoice> DeleteAsync(string invoiceId, InvoiceDeleteOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
+        public virtual Task<Invoice> DeleteAsync(string id, InvoiceDeleteOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
         {
-            return this.DeleteEntityAsync(invoiceId, options, requestOptions, cancellationToken);
+            return this.DeleteEntityAsync(id, options, requestOptions, cancellationToken);
         }
 
         public virtual Invoice FinalizeInvoice(string id, InvoiceFinalizeInvoiceOptions options = null, RequestOptions requestOptions = null)
@@ -54,14 +54,14 @@ namespace Stripe
             return this.RequestAsync(HttpMethod.Post, $"{this.InstanceUrl(id)}/finalize", options, requestOptions, cancellationToken);
         }
 
-        public virtual Invoice Get(string invoiceId, InvoiceGetOptions options = null, RequestOptions requestOptions = null)
+        public virtual Invoice Get(string id, InvoiceGetOptions options = null, RequestOptions requestOptions = null)
         {
-            return this.GetEntity(invoiceId, options, requestOptions);
+            return this.GetEntity(id, options, requestOptions);
         }
 
-        public virtual Task<Invoice> GetAsync(string invoiceId, InvoiceGetOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
+        public virtual Task<Invoice> GetAsync(string id, InvoiceGetOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
         {
-            return this.GetEntityAsync(invoiceId, options, requestOptions, cancellationToken);
+            return this.GetEntityAsync(id, options, requestOptions, cancellationToken);
         }
 
         public virtual StripeList<Invoice> List(InvoiceListOptions options = null, RequestOptions requestOptions = null)
@@ -78,6 +78,7 @@ namespace Stripe
         {
             return this.ListEntitiesAutoPaging(options, requestOptions);
         }
+
         #if !NET45
         public virtual IAsyncEnumerable<Invoice> ListAutoPagingAsync(InvoiceListOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
         {
@@ -135,14 +136,14 @@ namespace Stripe
             return this.RequestAsync<InvoiceLinesList>(HttpMethod.Get, $"{this.InstanceUrl("upcoming")}/lines, options, requestOptions, cancellationToken);
         }
 
-        public virtual Invoice Update(string invoiceId, InvoiceUpdateOptions options, RequestOptions requestOptions = null)
+        public virtual Invoice Update(string id, InvoiceUpdateOptions options, RequestOptions requestOptions = null)
         {
-            return this.UpdateEntity(invoiceId, options, requestOptions);
+            return this.UpdateEntity(id, options, requestOptions);
         }
 
-        public virtual Task<Invoice> UpdateAsync(string invoiceId, InvoiceUpdateOptions options, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
+        public virtual Task<Invoice> UpdateAsync(string id, InvoiceUpdateOptions options, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
         {
-            return this.UpdateEntityAsync(invoiceId, options, requestOptions, cancellationToken);
+            return this.UpdateEntityAsync(id, options, requestOptions, cancellationToken);
         }
 
         public virtual Invoice VoidInvoice(string id, InvoiceVoidInvoiceOptions options = null, RequestOptions requestOptions = null)

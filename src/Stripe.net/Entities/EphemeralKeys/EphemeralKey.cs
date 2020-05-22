@@ -22,8 +22,5 @@ namespace Stripe
 
         [JsonProperty("livemode")]
         public bool Livemode { get; set; }
-
-        [JsonProperty("secret")]
-        public string Secret { get; set; }
     }
 }

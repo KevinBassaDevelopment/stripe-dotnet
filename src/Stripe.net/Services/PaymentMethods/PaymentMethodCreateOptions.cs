@@ -26,7 +26,7 @@ namespace Stripe
         public PaymentMethodIdealCreateOptions Ideal { get; set; }
 
         [JsonProperty("interac_present")]
-        public PaymentMethodInteracPresentOptions InteracPresent { get; set; }
+        public PaymentMethodInteracPresentCreateOptions InteracPresent { get; set; }
 
         [JsonProperty("metadata")]
         public Dictionary<string, string> Metadata { get; set; }

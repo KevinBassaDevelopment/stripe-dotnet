@@ -164,7 +164,7 @@ namespace Stripe
         [JsonProperty("default_tax_rates")]
         public List<TaxRate> DefaultTaxRates { get; set; }
 
-        [JsonProperty("deleted", NullValueHandling=NullValueHandling.Ignore)]
+        [JsonProperty("deleted", NullValueHandling = NullValueHandling.Ignore)]
         public bool? Deleted { get; set; }
 
         [JsonProperty("description")]

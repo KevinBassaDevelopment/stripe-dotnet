@@ -33,14 +33,14 @@ namespace Stripe
             return this.CreateEntityAsync(options, requestOptions, cancellationToken);
         }
 
-        public virtual Order Get(string orderId, OrderGetOptions options = null, RequestOptions requestOptions = null)
+        public virtual Order Get(string id, OrderGetOptions options = null, RequestOptions requestOptions = null)
         {
-            return this.GetEntity(orderId, options, requestOptions);
+            return this.GetEntity(id, options, requestOptions);
         }
 
-        public virtual Task<Order> GetAsync(string orderId, OrderGetOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
+        public virtual Task<Order> GetAsync(string id, OrderGetOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
         {
-            return this.GetEntityAsync(orderId, options, requestOptions, cancellationToken);
+            return this.GetEntityAsync(id, options, requestOptions, cancellationToken);
         }
 
         public virtual StripeList<Order> List(OrderListOptions options = null, RequestOptions requestOptions = null)
@@ -57,6 +57,7 @@ namespace Stripe
         {
             return this.ListEntitiesAutoPaging(options, requestOptions);
         }
+
         #if !NET45
         public virtual IAsyncEnumerable<Order> ListAutoPagingAsync(OrderListOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
         {
@@ -84,14 +85,14 @@ namespace Stripe
             return this.RequestAsync<OrderReturn>(HttpMethod.Post, $"{this.InstanceUrl(id)}/returns", options, requestOptions, cancellationToken);
         }
 
-        public virtual Order Update(string orderId, OrderUpdateOptions options, RequestOptions requestOptions = null)
+        public virtual Order Update(string id, OrderUpdateOptions options, RequestOptions requestOptions = null)
         {
-            return this.UpdateEntity(orderId, options, requestOptions);
+            return this.UpdateEntity(id, options, requestOptions);
         }
 
-        public virtual Task<Order> UpdateAsync(string orderId, OrderUpdateOptions options, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
+        public virtual Task<Order> UpdateAsync(string id, OrderUpdateOptions options, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
         {
-            return this.UpdateEntityAsync(orderId, options, requestOptions, cancellationToken);
+            return this.UpdateEntityAsync(id, options, requestOptions, cancellationToken);
         }
     }
 }

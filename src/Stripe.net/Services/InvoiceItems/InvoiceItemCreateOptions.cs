@@ -48,6 +48,6 @@ namespace Stripe
         public long? UnitAmount { get; set; }
 
         [JsonProperty("unit_amount_decimal")]
-        public string UnitAmountDecimal { get; set; }
+        public decimal? UnitAmountDecimal { get; set; }
     }
 }

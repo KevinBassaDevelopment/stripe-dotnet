@@ -41,14 +41,14 @@ namespace Stripe
             return this.RequestAsync<unknown>(HttpMethod.Delete, /v1/customers/{customer}/sources/{id}, options, requestOptions, cancellationToken);
         }
 
-        public virtual Source Get(string sourceId, SourceGetOptions options = null, RequestOptions requestOptions = null)
+        public virtual Source Get(string id, SourceGetOptions options = null, RequestOptions requestOptions = null)
         {
-            return this.GetEntity(sourceId, options, requestOptions);
+            return this.GetEntity(id, options, requestOptions);
         }
 
-        public virtual Task<Source> GetAsync(string sourceId, SourceGetOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
+        public virtual Task<Source> GetAsync(string id, SourceGetOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
         {
-            return this.GetEntityAsync(sourceId, options, requestOptions, cancellationToken);
+            return this.GetEntityAsync(id, options, requestOptions, cancellationToken);
         }
 
         public virtual ApmsSourcesSourceTransactionList SourceTransactions(string id, SourceSourceTransactionsOptions options = null, RequestOptions requestOptions = null)
@@ -61,14 +61,14 @@ namespace Stripe
             return this.RequestAsync<ApmsSourcesSourceTransactionList>(HttpMethod.Get, $"{this.InstanceUrl(id)}/source_transactions", options, requestOptions, cancellationToken);
         }
 
-        public virtual Source Update(string sourceId, SourceUpdateOptions options, RequestOptions requestOptions = null)
+        public virtual Source Update(string id, SourceUpdateOptions options, RequestOptions requestOptions = null)
         {
-            return this.UpdateEntity(sourceId, options, requestOptions);
+            return this.UpdateEntity(id, options, requestOptions);
         }
 
-        public virtual Task<Source> UpdateAsync(string sourceId, SourceUpdateOptions options, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
+        public virtual Task<Source> UpdateAsync(string id, SourceUpdateOptions options, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
         {
-            return this.UpdateEntityAsync(sourceId, options, requestOptions, cancellationToken);
+            return this.UpdateEntityAsync(id, options, requestOptions, cancellationToken);
         }
 
         public virtual Source Verify(string id, SourceVerifyOptions options = null, RequestOptions requestOptions = null)

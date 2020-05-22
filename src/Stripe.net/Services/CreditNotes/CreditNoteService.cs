@@ -33,14 +33,14 @@ namespace Stripe
             return this.CreateEntityAsync(options, requestOptions, cancellationToken);
         }
 
-        public virtual CreditNote Get(string creditNoteId, CreditNoteGetOptions options = null, RequestOptions requestOptions = null)
+        public virtual CreditNote Get(string id, CreditNoteGetOptions options = null, RequestOptions requestOptions = null)
         {
-            return this.GetEntity(creditNoteId, options, requestOptions);
+            return this.GetEntity(id, options, requestOptions);
         }
 
-        public virtual Task<CreditNote> GetAsync(string creditNoteId, CreditNoteGetOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
+        public virtual Task<CreditNote> GetAsync(string id, CreditNoteGetOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
         {
-            return this.GetEntityAsync(creditNoteId, options, requestOptions, cancellationToken);
+            return this.GetEntityAsync(id, options, requestOptions, cancellationToken);
         }
 
         public virtual StripeList<CreditNote> List(CreditNoteListOptions options = null, RequestOptions requestOptions = null)
@@ -57,6 +57,7 @@ namespace Stripe
         {
             return this.ListEntitiesAutoPaging(options, requestOptions);
         }
+
         #if !NET45
         public virtual IAsyncEnumerable<CreditNote> ListAutoPagingAsync(CreditNoteListOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
         {
@@ -84,14 +85,14 @@ namespace Stripe
             return this.RequestAsync<CreditNoteLinesList>(HttpMethod.Get, $"{this.InstanceUrl("preview")}/lines, options, requestOptions, cancellationToken);
         }
 
-        public virtual CreditNote Update(string creditNoteId, CreditNoteUpdateOptions options, RequestOptions requestOptions = null)
+        public virtual CreditNote Update(string id, CreditNoteUpdateOptions options, RequestOptions requestOptions = null)
         {
-            return this.UpdateEntity(creditNoteId, options, requestOptions);
+            return this.UpdateEntity(id, options, requestOptions);
         }
 
-        public virtual Task<CreditNote> UpdateAsync(string creditNoteId, CreditNoteUpdateOptions options, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
+        public virtual Task<CreditNote> UpdateAsync(string id, CreditNoteUpdateOptions options, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
         {
-            return this.UpdateEntityAsync(creditNoteId, options, requestOptions, cancellationToken);
+            return this.UpdateEntityAsync(id, options, requestOptions, cancellationToken);
         }
 
         public virtual CreditNote VoidCreditNote(string id, CreditNoteVoidCreditNoteOptions options = null, RequestOptions requestOptions = null)

@@ -43,14 +43,14 @@ namespace Stripe
             return this.CreateEntityAsync(options, requestOptions, cancellationToken);
         }
 
-        public virtual Topup Get(string topupId, TopupGetOptions options = null, RequestOptions requestOptions = null)
+        public virtual Topup Get(string id, TopupGetOptions options = null, RequestOptions requestOptions = null)
         {
-            return this.GetEntity(topupId, options, requestOptions);
+            return this.GetEntity(id, options, requestOptions);
         }
 
-        public virtual Task<Topup> GetAsync(string topupId, TopupGetOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
+        public virtual Task<Topup> GetAsync(string id, TopupGetOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
         {
-            return this.GetEntityAsync(topupId, options, requestOptions, cancellationToken);
+            return this.GetEntityAsync(id, options, requestOptions, cancellationToken);
         }
 
         public virtual StripeList<Topup> List(TopupListOptions options = null, RequestOptions requestOptions = null)
@@ -67,6 +67,7 @@ namespace Stripe
         {
             return this.ListEntitiesAutoPaging(options, requestOptions);
         }
+
         #if !NET45
         public virtual IAsyncEnumerable<Topup> ListAutoPagingAsync(TopupListOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
         {
@@ -74,14 +75,14 @@ namespace Stripe
         }
         #endif
 
-        public virtual Topup Update(string topupId, TopupUpdateOptions options, RequestOptions requestOptions = null)
+        public virtual Topup Update(string id, TopupUpdateOptions options, RequestOptions requestOptions = null)
         {
-            return this.UpdateEntity(topupId, options, requestOptions);
+            return this.UpdateEntity(id, options, requestOptions);
         }
 
-        public virtual Task<Topup> UpdateAsync(string topupId, TopupUpdateOptions options, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
+        public virtual Task<Topup> UpdateAsync(string id, TopupUpdateOptions options, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
         {
-            return this.UpdateEntityAsync(topupId, options, requestOptions, cancellationToken);
+            return this.UpdateEntityAsync(id, options, requestOptions, cancellationToken);
         }
     }
 }

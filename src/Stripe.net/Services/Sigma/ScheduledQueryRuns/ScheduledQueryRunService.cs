@@ -20,14 +20,14 @@ namespace Stripe.Sigma
 
         public override string BasePath => "/v1/sigma/scheduled_query_runs";
 
-        public virtual ScheduledQueryRun Get(string scheduledQueryRunId, ScheduledQueryRunGetOptions options = null, RequestOptions requestOptions = null)
+        public virtual ScheduledQueryRun Get(string id, ScheduledQueryRunGetOptions options = null, RequestOptions requestOptions = null)
         {
-            return this.GetEntity(scheduledQueryRunId, options, requestOptions);
+            return this.GetEntity(id, options, requestOptions);
         }
 
-        public virtual Task<ScheduledQueryRun> GetAsync(string scheduledQueryRunId, ScheduledQueryRunGetOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
+        public virtual Task<ScheduledQueryRun> GetAsync(string id, ScheduledQueryRunGetOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
         {
-            return this.GetEntityAsync(scheduledQueryRunId, options, requestOptions, cancellationToken);
+            return this.GetEntityAsync(id, options, requestOptions, cancellationToken);
         }
 
         public virtual StripeList<ScheduledQueryRun> List(ScheduledQueryRunListOptions options = null, RequestOptions requestOptions = null)
@@ -44,6 +44,7 @@ namespace Stripe.Sigma
         {
             return this.ListEntitiesAutoPaging(options, requestOptions);
         }
+
         #if !NET45
         public virtual IAsyncEnumerable<ScheduledQueryRun> ListAutoPagingAsync(ScheduledQueryRunListOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
         {

@@ -20,14 +20,14 @@ namespace Stripe
 
         public override string BasePath => "/v1/order_returns";
 
-        public virtual OrderReturn Get(string orderReturnId, OrderReturnGetOptions options = null, RequestOptions requestOptions = null)
+        public virtual OrderReturn Get(string id, OrderReturnGetOptions options = null, RequestOptions requestOptions = null)
         {
-            return this.GetEntity(orderReturnId, options, requestOptions);
+            return this.GetEntity(id, options, requestOptions);
         }
 
-        public virtual Task<OrderReturn> GetAsync(string orderReturnId, OrderReturnGetOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
+        public virtual Task<OrderReturn> GetAsync(string id, OrderReturnGetOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
         {
-            return this.GetEntityAsync(orderReturnId, options, requestOptions, cancellationToken);
+            return this.GetEntityAsync(id, options, requestOptions, cancellationToken);
         }
 
         public virtual StripeList<OrderReturn> List(OrderReturnListOptions options = null, RequestOptions requestOptions = null)
@@ -44,6 +44,7 @@ namespace Stripe
         {
             return this.ListEntitiesAutoPaging(options, requestOptions);
         }
+
         #if !NET45
         public virtual IAsyncEnumerable<OrderReturn> ListAutoPagingAsync(OrderReturnListOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
         {

@@ -29,14 +29,14 @@ namespace Stripe
             return this.CreateEntityAsync(options, requestOptions, cancellationToken);
         }
 
-        public virtual ThreeDSecure Get(string threeDSecureId, ThreeDSecureGetOptions options = null, RequestOptions requestOptions = null)
+        public virtual ThreeDSecure Get(string id, ThreeDSecureGetOptions options = null, RequestOptions requestOptions = null)
         {
-            return this.GetEntity(threeDSecureId, options, requestOptions);
+            return this.GetEntity(id, options, requestOptions);
         }
 
-        public virtual Task<ThreeDSecure> GetAsync(string threeDSecureId, ThreeDSecureGetOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
+        public virtual Task<ThreeDSecure> GetAsync(string id, ThreeDSecureGetOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
         {
-            return this.GetEntityAsync(threeDSecureId, options, requestOptions, cancellationToken);
+            return this.GetEntityAsync(id, options, requestOptions, cancellationToken);
         }
     }
 }
