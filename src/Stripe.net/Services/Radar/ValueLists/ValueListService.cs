@@ -8,7 +8,8 @@ namespace Stripe.Radar
         ICreatable<ValueList, ValueListCreateOptions>,
         IDeletable<ValueList, ValueListDeleteOptions>,
         IListable<ValueList, ValueListListOptions>,
-        IRetrievable<ValueList, ValueListGetOptions>
+        IRetrievable<ValueList, ValueListGetOptions>,
+        IUpdatable<ValueList, ValueListUpdateOptions>
     {
         public ValueListService()
             : base(null)
@@ -66,13 +67,12 @@ namespace Stripe.Radar
         {
             return this.ListEntitiesAutoPaging(options, requestOptions);
         }
-
-#if !NET45
+        #if !NET45
         public virtual IAsyncEnumerable<ValueList> ListAutoPagingAsync(ValueListListOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
         {
             return this.ListEntitiesAutoPagingAsync(options, requestOptions, cancellationToken);
         }
-#endif
+        #endif
 
         public virtual ValueList Update(string valueListId, ValueListUpdateOptions options, RequestOptions requestOptions = null)
         {

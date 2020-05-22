@@ -1,10 +1,8 @@
 namespace Stripe.Terminal
 {
-    using System;
     using System.Collections.Generic;
     using System.Threading;
     using System.Threading.Tasks;
-    using Stripe.Infrastructure;
 
     public class LocationService : Service<Location>,
         ICreatable<Location, LocationCreateOptions>,
@@ -69,13 +67,12 @@ namespace Stripe.Terminal
         {
             return this.ListEntitiesAutoPaging(options, requestOptions);
         }
-
-#if !NET45
+        #if !NET45
         public virtual IAsyncEnumerable<Location> ListAutoPagingAsync(LocationListOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
         {
             return this.ListEntitiesAutoPagingAsync(options, requestOptions, cancellationToken);
         }
-#endif
+        #endif
 
         public virtual Location Update(string locationId, LocationUpdateOptions options, RequestOptions requestOptions = null)
         {

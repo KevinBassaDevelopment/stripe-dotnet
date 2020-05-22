@@ -2,7 +2,6 @@ namespace Stripe
 {
     using System.Collections.Generic;
     using Newtonsoft.Json;
-    using Stripe.Infrastructure;
 
     public class AccountCreateOptions : BaseOptions, IHasMetadata
     {
@@ -28,11 +27,10 @@ namespace Stripe
         public string Email { get; set; }
 
         [JsonProperty("external_account")]
-        [JsonConverter(typeof(AnyOfConverter))]
-        public AnyOf<string, AccountBankAccountOptions, AccountCardOptions> ExternalAccount { get; set; }
+        public string ExternalAccount { get; set; }
 
         [JsonProperty("individual")]
-        public PersonCreateOptions Individual { get; set; }
+        public AccountIndividualOptions Individual { get; set; }
 
         [JsonProperty("metadata")]
         public Dictionary<string, string> Metadata { get; set; }

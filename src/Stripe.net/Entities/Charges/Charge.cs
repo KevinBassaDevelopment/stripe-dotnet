@@ -13,6 +13,9 @@ namespace Stripe
         [JsonProperty("object")]
         public string Object { get; set; }
 
+        [JsonProperty("alternate_statement_descriptors")]
+        public ChargeAlternateStatementDescriptors AlternateStatementDescriptors { get; set; }
+
         [JsonProperty("amount")]
         public long Amount { get; set; }
 
@@ -203,6 +206,9 @@ namespace Stripe
         internal ExpandableField<Invoice> InternalInvoice { get; set; }
         #endregion
 
+        [JsonProperty("level3")]
+        public ChargeLevel3 Level3 { get; set; }
+
         [JsonProperty("livemode")]
         public bool Livemode { get; set; }
 
@@ -250,9 +256,6 @@ namespace Stripe
         [JsonConverter(typeof(ExpandableFieldConverter<Order>))]
         internal ExpandableField<Order> InternalOrder { get; set; }
         #endregion
-
-        [JsonProperty("level3")]
-        public ChargeLevel3 Level3 { get; set; }
 
         [JsonProperty("outcome")]
         public ChargeOutcome Outcome { get; set; }
@@ -327,7 +330,6 @@ namespace Stripe
         public Shipping Shipping { get; set; }
 
         [JsonProperty("source")]
-        [JsonConverter(typeof(StripeObjectConverter))]
         public IPaymentSource Source { get; set; }
 
         #region Expandable SourceTransfer

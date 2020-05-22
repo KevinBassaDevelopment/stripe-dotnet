@@ -44,7 +44,7 @@ namespace Stripe
         [JsonConverter(typeof(DateTimeConverter))]
         public DateTime Date { get; set; }
 
-        [JsonProperty("deleted", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("deleted", NullValueHandling=NullValueHandling.Ignore)]
         public bool? Deleted { get; set; }
 
         [JsonProperty("description")]
@@ -129,6 +129,6 @@ namespace Stripe
         public long? UnitAmount { get; set; }
 
         [JsonProperty("unit_amount_decimal")]
-        public decimal? UnitAmountDecimal { get; set; }
+        public string UnitAmountDecimal { get; set; }
     }
 }

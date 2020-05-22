@@ -45,13 +45,12 @@ namespace Stripe.Issuing
         {
             return this.ListEntitiesAutoPaging(options, requestOptions);
         }
-
-#if !NET45
+        #if !NET45
         public virtual IAsyncEnumerable<Transaction> ListAutoPagingAsync(TransactionListOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
         {
             return this.ListEntitiesAutoPagingAsync(options, requestOptions, cancellationToken);
         }
-#endif
+        #endif
 
         public virtual Transaction Update(string transactionId, TransactionUpdateOptions options, RequestOptions requestOptions = null)
         {

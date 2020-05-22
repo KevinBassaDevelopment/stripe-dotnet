@@ -11,7 +11,7 @@ namespace Stripe.Terminal
         [JsonProperty("object")]
         public string Object { get; set; }
 
-        [JsonProperty("deleted", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("deleted", NullValueHandling=NullValueHandling.Ignore)]
         public bool? Deleted { get; set; }
 
         [JsonProperty("device_sw_version")]

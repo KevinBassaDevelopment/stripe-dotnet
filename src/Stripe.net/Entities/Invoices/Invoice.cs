@@ -164,7 +164,7 @@ namespace Stripe
         [JsonProperty("default_tax_rates")]
         public List<TaxRate> DefaultTaxRates { get; set; }
 
-        [JsonProperty("deleted", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("deleted", NullValueHandling=NullValueHandling.Ignore)]
         public bool? Deleted { get; set; }
 
         [JsonProperty("description")]
@@ -280,8 +280,7 @@ namespace Stripe
         #endregion
 
         [JsonProperty("subscription_proration_date")]
-        [JsonConverter(typeof(DateTimeConverter))]
-        public DateTime SubscriptionProrationDate { get; set; }
+        public long SubscriptionProrationDate { get; set; }
 
         [JsonProperty("subtotal")]
         public long Subtotal { get; set; }
@@ -289,7 +288,6 @@ namespace Stripe
         [JsonProperty("tax")]
         public long? Tax { get; set; }
 
-        [Obsolete("Use DefaultTaxRates instead")]
         [JsonProperty("tax_percent")]
         public decimal? TaxPercent { get; set; }
 
@@ -300,7 +298,7 @@ namespace Stripe
         public long Total { get; set; }
 
         [JsonProperty("total_tax_amounts")]
-        public List<InvoiceTaxAmount> TotalTaxAmounts { get; set; }
+        public List<InvoiceTotalTaxAmount> TotalTaxAmounts { get; set; }
 
         [JsonProperty("transfer_data")]
         public InvoiceTransferData TransferData { get; set; }

@@ -38,7 +38,7 @@ namespace Stripe
         [JsonProperty("default_currency")]
         public string DefaultCurrency { get; set; }
 
-        [JsonProperty("deleted", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("deleted", NullValueHandling=NullValueHandling.Ignore)]
         public bool? Deleted { get; set; }
 
         [JsonProperty("details_submitted")]

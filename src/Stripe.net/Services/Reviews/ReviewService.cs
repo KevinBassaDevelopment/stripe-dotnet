@@ -21,14 +21,14 @@ namespace Stripe
 
         public override string BasePath => "/v1/reviews";
 
-        public virtual Review Approve(string reviewId, ReviewApproveOptions options = null, RequestOptions requestOptions = null)
+        public virtual Review Approve(string id, ReviewApproveOptions options = null, RequestOptions requestOptions = null)
         {
-            return this.Request(HttpMethod.Post, $"{this.InstanceUrl(reviewId)}/approve", options, requestOptions);
+            return this.Request(HttpMethod.Post, $"{this.InstanceUrl(id)}/approve", options, requestOptions);
         }
 
-        public virtual Task<Review> ApproveAsync(string reviewId, ReviewApproveOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
+        public virtual Task<Review> ApproveAsync(string id, ReviewApproveOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
         {
-            return this.RequestAsync(HttpMethod.Post, $"{this.InstanceUrl(reviewId)}/approve", options, requestOptions, cancellationToken);
+            return this.RequestAsync(HttpMethod.Post, $"{this.InstanceUrl(id)}/approve", options, requestOptions, cancellationToken);
         }
 
         public virtual Review Get(string reviewId, ReviewGetOptions options = null, RequestOptions requestOptions = null)
@@ -55,12 +55,11 @@ namespace Stripe
         {
             return this.ListEntitiesAutoPaging(options, requestOptions);
         }
-
-#if !NET45
+        #if !NET45
         public virtual IAsyncEnumerable<Review> ListAutoPagingAsync(ReviewListOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
         {
             return this.ListEntitiesAutoPagingAsync(options, requestOptions, cancellationToken);
         }
-#endif
+        #endif
     }
 }

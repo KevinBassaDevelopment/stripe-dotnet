@@ -1,6 +1,5 @@
 namespace Stripe
 {
-    using System;
     using System.Collections.Generic;
     using System.Threading;
     using System.Threading.Tasks;
@@ -43,6 +42,16 @@ namespace Stripe
             return this.GetEntityAsync(refundId, options, requestOptions, cancellationToken);
         }
 
+        public virtual Refund Get(string refundId, RefundGetOptions options = null, RequestOptions requestOptions = null)
+        {
+            return this.GetEntity(refundId, options, requestOptions);
+        }
+
+        public virtual Task<Refund> GetAsync(string refundId, RefundGetOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
+        {
+            return this.GetEntityAsync(refundId, options, requestOptions, cancellationToken);
+        }
+
         public virtual StripeList<Refund> List(RefundListOptions options = null, RequestOptions requestOptions = null)
         {
             return this.ListEntities(options, requestOptions);
@@ -57,13 +66,33 @@ namespace Stripe
         {
             return this.ListEntitiesAutoPaging(options, requestOptions);
         }
-
-#if !NET45
+        #if !NET45
         public virtual IAsyncEnumerable<Refund> ListAutoPagingAsync(RefundListOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
         {
             return this.ListEntitiesAutoPagingAsync(options, requestOptions, cancellationToken);
         }
-#endif
+        #endif
+
+        public virtual StripeList<Refund> List(RefundListOptions options = null, RequestOptions requestOptions = null)
+        {
+            return this.ListEntities(options, requestOptions);
+        }
+
+        public virtual Task<StripeList<Refund>> ListAsync(RefundListOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
+        {
+            return this.ListEntitiesAsync(options, requestOptions, cancellationToken);
+        }
+
+        public virtual IEnumerable<Refund> ListAutoPaging(RefundListOptions options = null, RequestOptions requestOptions = null)
+        {
+            return this.ListEntitiesAutoPaging(options, requestOptions);
+        }
+        #if !NET45
+        public virtual IAsyncEnumerable<Refund> ListAutoPagingAsync(RefundListOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
+        {
+            return this.ListEntitiesAutoPagingAsync(options, requestOptions, cancellationToken);
+        }
+        #endif
 
         public virtual Refund Update(string refundId, RefundUpdateOptions options, RequestOptions requestOptions = null)
         {

@@ -1,6 +1,5 @@
 namespace Stripe
 {
-    using System;
     using System.Collections.Generic;
     using Newtonsoft.Json;
     using Stripe.Infrastructure;
@@ -14,7 +13,8 @@ namespace Stripe
         public BillingDetailsOptions BillingDetails { get; set; }
 
         [JsonProperty("card")]
-        public PaymentMethodCardCreateOptions Card { get; set; }
+        [JsonConverter(typeof(AnyOfConverter))]
+        public AnyOf<PaymentMethodCardCreateOptions, PaymentMethodCardCreateOptions> Card { get; set; }
 
         [JsonProperty("customer")]
         public string Customer { get; set; }
@@ -26,7 +26,7 @@ namespace Stripe
         public PaymentMethodIdealCreateOptions Ideal { get; set; }
 
         [JsonProperty("interac_present")]
-        public PaymentMethodInteracPresentCreateOptions InteracPresent { get; set; }
+        public PaymentMethodInteracPresentOptions InteracPresent { get; set; }
 
         [JsonProperty("metadata")]
         public Dictionary<string, string> Metadata { get; set; }

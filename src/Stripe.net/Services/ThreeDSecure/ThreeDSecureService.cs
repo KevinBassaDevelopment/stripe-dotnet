@@ -1,13 +1,11 @@
 namespace Stripe
 {
-    using System;
     using System.Threading;
     using System.Threading.Tasks;
-    using Stripe.Infrastructure;
 
-    [Obsolete("Use the SourceService instead.")]
     public class ThreeDSecureService : Service<ThreeDSecure>,
-        ICreatable<ThreeDSecure, ThreeDSecureCreateOptions>
+        ICreatable<ThreeDSecure, ThreeDSecureCreateOptions>,
+        IRetrievable<ThreeDSecure, ThreeDSecureGetOptions>
     {
         public ThreeDSecureService()
             : base(null)
@@ -29,6 +27,16 @@ namespace Stripe
         public virtual Task<ThreeDSecure> CreateAsync(ThreeDSecureCreateOptions options, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
         {
             return this.CreateEntityAsync(options, requestOptions, cancellationToken);
+        }
+
+        public virtual ThreeDSecure Get(string threeDSecureId, ThreeDSecureGetOptions options = null, RequestOptions requestOptions = null)
+        {
+            return this.GetEntity(threeDSecureId, options, requestOptions);
+        }
+
+        public virtual Task<ThreeDSecure> GetAsync(string threeDSecureId, ThreeDSecureGetOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
+        {
+            return this.GetEntityAsync(threeDSecureId, options, requestOptions, cancellationToken);
         }
     }
 }

@@ -34,9 +34,6 @@ namespace Stripe
         [JsonProperty("bancontact")]
         public SourceBancontact Bancontact { get; set; }
 
-        [JsonProperty("bitcoin")]
-        public SourceBitcoin Bitcoin { get; set; }
-
         [JsonProperty("card")]
         public SourceCard Card { get; set; }
 
@@ -83,8 +80,17 @@ namespace Stripe
         [JsonProperty("multibanco")]
         public SourceMultibanco Multibanco { get; set; }
 
+        [JsonProperty("owner")]
+        public SourceOwner Owner { get; set; }
+
         [JsonProperty("p24")]
         public SourceP24 P24 { get; set; }
+
+        [JsonProperty("receiver")]
+        public SourceReceiver Receiver { get; set; }
+
+        [JsonProperty("redirect")]
+        public SourceRedirect Redirect { get; set; }
 
         [JsonProperty("sepa_credit_transfer")]
         public SourceSepaCreditTransfer SepaCreditTransfer { get; set; }
@@ -97,15 +103,6 @@ namespace Stripe
 
         [JsonProperty("source_order")]
         public SourceSourceOrder SourceOrder { get; set; }
-
-        [JsonProperty("owner")]
-        public SourceOwner Owner { get; set; }
-
-        [JsonProperty("receiver")]
-        public SourceReceiver Receiver { get; set; }
-
-        [JsonProperty("redirect")]
-        public SourceRedirect Redirect { get; set; }
 
         [JsonProperty("statement_descriptor")]
         public string StatementDescriptor { get; set; }

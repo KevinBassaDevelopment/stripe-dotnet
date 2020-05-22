@@ -99,7 +99,7 @@ namespace Stripe
         public Shipping Shipping { get; set; }
 
         [JsonProperty("shipping_methods")]
-        public List<OrderShippingMethod> ShippingMethods { get; set; }
+        public List<ShippingMethod> ShippingMethods { get; set; }
 
         [JsonProperty("status")]
         public string Status { get; set; }
@@ -109,7 +109,7 @@ namespace Stripe
 
         [JsonProperty("updated")]
         [JsonConverter(typeof(DateTimeConverter))]
-        public DateTime Updated { get; set; }
+        public DateTime? Updated { get; set; }
 
         [JsonProperty("upstream_id")]
         public string UpstreamId { get; set; }

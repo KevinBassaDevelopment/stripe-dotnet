@@ -1,6 +1,7 @@
 namespace Stripe
 {
     using System.Collections.Generic;
+    using System.Net.Http;
     using System.Threading;
     using System.Threading.Tasks;
 
@@ -33,12 +34,12 @@ namespace Stripe
             return this.CreateEntityAsync(options, requestOptions, cancellationToken);
         }
 
-        public virtual SubscriptionItem Delete(string subscriptionItemId, SubscriptionItemDeleteOptions options, RequestOptions requestOptions = null)
+        public virtual SubscriptionItem Delete(string subscriptionItemId, SubscriptionItemDeleteOptions options = null, RequestOptions requestOptions = null)
         {
             return this.DeleteEntity(subscriptionItemId, options, requestOptions);
         }
 
-        public virtual Task<SubscriptionItem> DeleteAsync(string subscriptionItemId, SubscriptionItemDeleteOptions options, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
+        public virtual Task<SubscriptionItem> DeleteAsync(string subscriptionItemId, SubscriptionItemDeleteOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
         {
             return this.DeleteEntityAsync(subscriptionItemId, options, requestOptions, cancellationToken);
         }
@@ -67,13 +68,12 @@ namespace Stripe
         {
             return this.ListEntitiesAutoPaging(options, requestOptions);
         }
-
-#if !NET45
+        #if !NET45
         public virtual IAsyncEnumerable<SubscriptionItem> ListAutoPagingAsync(SubscriptionItemListOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
         {
             return this.ListEntitiesAutoPagingAsync(options, requestOptions, cancellationToken);
         }
-#endif
+        #endif
 
         public virtual SubscriptionItem Update(string subscriptionItemId, SubscriptionItemUpdateOptions options, RequestOptions requestOptions = null)
         {
@@ -83,6 +83,16 @@ namespace Stripe
         public virtual Task<SubscriptionItem> UpdateAsync(string subscriptionItemId, SubscriptionItemUpdateOptions options, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
         {
             return this.UpdateEntityAsync(subscriptionItemId, options, requestOptions, cancellationToken);
+        }
+
+        public virtual unknown UsageRecordSummaries(string id, SubscriptionItemUsageRecordSummariesOptions options = null, RequestOptions requestOptions = null)
+        {
+            return this.Request<unknown>(HttpMethod.Get, $"{this.InstanceUrl(id)}/usage_record_summaries", options, requestOptions);
+        }
+
+        public virtual Task<unknown> UsageRecordSummariesAsync(string id, SubscriptionItemUsageRecordSummariesOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
+        {
+            return this.RequestAsync<unknown>(HttpMethod.Get, $"{this.InstanceUrl(id)}/usage_record_summaries", options, requestOptions, cancellationToken);
         }
     }
 }

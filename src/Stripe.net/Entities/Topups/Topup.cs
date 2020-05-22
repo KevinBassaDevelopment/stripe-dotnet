@@ -48,8 +48,7 @@ namespace Stripe
         public string Description { get; set; }
 
         [JsonProperty("expected_availability_date")]
-        [JsonConverter(typeof(DateTimeConverter))]
-        public DateTime? ExpectedAvailabilityDate { get; set; }
+        public long? ExpectedAvailabilityDate { get; set; }
 
         [JsonProperty("failure_code")]
         public string FailureCode { get; set; }

@@ -1,6 +1,5 @@
 namespace Stripe
 {
-    using System;
     using System.Collections.Generic;
     using System.Net.Http;
     using System.Threading;
@@ -24,6 +23,16 @@ namespace Stripe
         }
 
         public override string BasePath => "/v1/accounts";
+
+        public virtual ListAccountCapability Capabilities(string id, AccountCapabilitiesOptions options = null, RequestOptions requestOptions = null)
+        {
+            return this.Request<ListAccountCapability>(HttpMethod.Get, $"{this.InstanceUrl(id)}/capabilities", options, requestOptions);
+        }
+
+        public virtual Task<ListAccountCapability> CapabilitiesAsync(string id, AccountCapabilitiesOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
+        {
+            return this.RequestAsync<ListAccountCapability>(HttpMethod.Get, $"{this.InstanceUrl(id)}/capabilities", options, requestOptions, cancellationToken);
+        }
 
         public virtual Account Create(AccountCreateOptions options, RequestOptions requestOptions = null)
         {
@@ -55,14 +64,14 @@ namespace Stripe
             return this.GetEntityAsync(accountId, options, requestOptions, cancellationToken);
         }
 
-        public virtual Account GetSelf(RequestOptions requestOptions = null)
+        public virtual Account Get(string accountId, AccountGetOptions options = null, RequestOptions requestOptions = null)
         {
-            return this.Request(HttpMethod.Get, "/v1/account", null, requestOptions);
+            return this.GetEntity(accountId, options, requestOptions);
         }
 
-        public virtual Task<Account> GetSelfAsync(RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
+        public virtual Task<Account> GetAsync(string accountId, AccountGetOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
         {
-            return this.RequestAsync(HttpMethod.Get, "/v1/account", null, requestOptions, cancellationToken);
+            return this.GetEntityAsync(accountId, options, requestOptions, cancellationToken);
         }
 
         public virtual StripeList<Account> List(AccountListOptions options = null, RequestOptions requestOptions = null)
@@ -79,22 +88,31 @@ namespace Stripe
         {
             return this.ListEntitiesAutoPaging(options, requestOptions);
         }
-
-#if !NET45
+        #if !NET45
         public virtual IAsyncEnumerable<Account> ListAutoPagingAsync(AccountListOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
         {
             return this.ListEntitiesAutoPagingAsync(options, requestOptions, cancellationToken);
         }
-#endif
+        #endif
 
-        public virtual Account Reject(string accountId, AccountRejectOptions options, RequestOptions requestOptions = null)
+        public virtual unknown Persons(string id, AccountPersonsOptions options = null, RequestOptions requestOptions = null)
         {
-            return this.Request(HttpMethod.Post, $"{this.InstanceUrl(accountId)}/reject", options, requestOptions);
+            return this.Request<unknown>(HttpMethod.Get, $"{this.InstanceUrl(id)}/persons", options, requestOptions);
         }
 
-        public virtual Task<Account> RejectAsync(string accountId, AccountRejectOptions options, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
+        public virtual Task<unknown> PersonsAsync(string id, AccountPersonsOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
         {
-            return this.RequestAsync(HttpMethod.Post, $"{this.InstanceUrl(accountId)}/reject", options, requestOptions, cancellationToken);
+            return this.RequestAsync<unknown>(HttpMethod.Get, $"{this.InstanceUrl(id)}/persons", options, requestOptions, cancellationToken);
+        }
+
+        public virtual Account Reject(string id, AccountRejectOptions options = null, RequestOptions requestOptions = null)
+        {
+            return this.Request(HttpMethod.Post, $"{this.InstanceUrl(id)}/reject", options, requestOptions);
+        }
+
+        public virtual Task<Account> RejectAsync(string id, AccountRejectOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
+        {
+            return this.RequestAsync(HttpMethod.Post, $"{this.InstanceUrl(id)}/reject", options, requestOptions, cancellationToken);
         }
 
         public virtual Account Update(string accountId, AccountUpdateOptions options, RequestOptions requestOptions = null)

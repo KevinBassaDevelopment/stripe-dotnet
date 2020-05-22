@@ -1,7 +1,6 @@
 namespace Stripe.Checkout
 {
     using System.Collections.Generic;
-    using System.Net.Http;
     using System.Threading;
     using System.Threading.Tasks;
 
@@ -56,34 +55,11 @@ namespace Stripe.Checkout
         {
             return this.ListEntitiesAutoPaging(options, requestOptions);
         }
-
-#if !NET45
+        #if !NET45
         public virtual IAsyncEnumerable<Session> ListAutoPagingAsync(SessionListOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
         {
             return this.ListEntitiesAutoPagingAsync(options, requestOptions, cancellationToken);
         }
-#endif
-
-        public virtual StripeList<LineItem> ListLineItems(string sessionId, SessionListLineItemsOptions options = null, RequestOptions requestOptions = null)
-        {
-            return this.Request<StripeList<LineItem>>(HttpMethod.Get, $"{this.InstanceUrl(sessionId)}/line_items", options, requestOptions);
-        }
-
-        public virtual Task<StripeList<LineItem>> ListLineItemsAsync(string sessionId, SessionListLineItemsOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
-        {
-            return this.RequestAsync<StripeList<LineItem>>(HttpMethod.Get, $"{this.InstanceUrl(sessionId)}/line_items", options, requestOptions, cancellationToken);
-        }
-
-        public virtual IEnumerable<LineItem> ListLineItemsAutoPaging(string sessionId, SessionListLineItemsOptions options = null, RequestOptions requestOptions = null)
-        {
-            return this.ListRequestAutoPaging<LineItem>($"{this.InstanceUrl(sessionId)}/line_items", options, requestOptions);
-        }
-
-#if !NET45
-        public virtual IAsyncEnumerable<LineItem> ListLineItemsAutoPagingAsync(string sessionId, SessionListLineItemsOptions options = null, RequestOptions requestOptions = null, CancellationToken cancellationToken = default)
-        {
-            return this.ListRequestAutoPagingAsync<LineItem>($"{this.InstanceUrl(sessionId)}/line_items", options, requestOptions, cancellationToken);
-        }
-#endif
+        #endif
     }
 }
